@@ -58,4 +58,68 @@ Y2=TargetVarScalerFit2.transform(Y2)
 
 X_train1, X_test1, y1_train, y1_test = train_test_split(X, Y1, test_size=0.3, random_state=42)
 X_train2, X_test2, y2_train, y2_test = train_test_split(X, Y2, test_size=0.3, random_state=42)
+
+class reg_model():
+       
+       def __init__(self,Input_shape,Output_shape):
+              
+              self.model=sequential()
+              self.output_shape=Output_shape
+              self.input_shape=Input_shape
+              
+              model.add(Dense(1000, input_shape=(Input_shape,), activation='relu'))
+              model.add(Dense(Output_shape, activation='linear'))
+              
+       
+       
+       
+       def add_layer(self,units,activation):
+              
+              last_layer=self.model.layers[-1]
+              x=sequential()
+              
+              for layer in self.model.layers[:-1]: 
+                     x.add(layer)
+                     
+              x.add(Dense(units, activation=activation))
+              x.add(last_layer) 
+              self.model=x
+                
+                     
+        
+       def compile_model(self):
+              self.model.compile(optimizer='rmsprop', loss='mse', metrics=['mae'])
+         
+       
+       
+       def train_model(self,X_train, y_train,X_test, y_test,epochs):
+              
+              es = EarlyStopping(monitor='val_loss',
+                   mode='min',
+                   patience=50,
+                   restore_best_weights = True)
+
+
+              history = self.model.fit(X_train, y_train,
+                                  validation_data = (X_test, y_test),
+                                  callbacks=[es],
+                                  epochs=epochs,
+                                  batch_size=50,
+                                  verbose=1)
+              
+              return(history)
+       
+       
+       
+       def epoch_vs_losses(history):          
+              history_dict = history.history
+              loss_values = history_dict['loss'] 
+              val_loss_values = history_dict['val_loss']
+              epochs = range(1, len(loss_values) + 1) 
+
+       
+       
+       
+                     
+                     
  
