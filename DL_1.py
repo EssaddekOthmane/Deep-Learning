@@ -9,9 +9,9 @@ import pandas as pd
 
 
 
-df=df=pd.read_csv('DB aout.csv')
+#df=df=pd.read_csv('DB aout.csv')
 
-#df=pd.read_excel("DB aout - Copie.xlsx")
+df=pd.read_excel("Db_aout.xlsx.xlsx")
 df=df.dropna()
 df = df.sample(frac = 1)
 
