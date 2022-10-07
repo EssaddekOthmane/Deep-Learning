@@ -33,7 +33,7 @@ columns=[ 'S0_F0', 'S1_F0', 'S2_F0', 'S3_F0',
 
 X=df[columns].values
 Y1=df['ref1'].values.reshape(-1, 1)
-#Y2=df['ref2'].values.reshape(-1, 1)
+Y2=df['ref2'].values.reshape(-1, 1)
 st.dataframe(df)
 
 
