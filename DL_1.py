@@ -27,7 +27,7 @@ continuer=True
        
 
 for i in range(length):
-       unit=st.slider('How old are you?', 0, 130, 25,key=i)#st.slider(label="Nombre de neurones", step= 2,min_value=0, max_value=1000,value= 200)
+       unit=st.slider(label="Nombre de neurones", step= 2,min_value=0, max_value=1000,value= 200,key=i)
        
        function=st.radio(
      "quelle est la fonction d'activation? ",
@@ -35,7 +35,7 @@ for i in range(length):
        units.append(unit)
        activation.append(function)
 
-       
+st.write(units,activation)      
 #df=df=pd.read_csv('DB aout.csv')
 
 df=pd.read_excel("Db_aout.xlsx")
