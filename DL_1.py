@@ -9,7 +9,9 @@ from sklearn.model_selection import train_test_split
 
 
 
+st.title("Constructeur de modèle profond de prédiction")
 
+st.markdown(Le deep learning ou apprentissage profond est un sous-domaine de l'intelligence artificielle (IA). Ce terme désigne l'ensemble des techniques d'apprentissage automatique (machine learning), autrement dit une forme d'apprentissage fondée sur des approches mathématiques, utilisées pour modéliser des données. Pour mieux comprendre ces techniques, il faut remonter aux origines de l'intelligence artificielle en 1950, année pendant laquelle Alan Turning s'intéresse aux machines capables de penser)
 
 
 #df=df=pd.read_csv('DB aout.csv')
@@ -70,10 +72,23 @@ class reg_model():
               model.add(Dense(1000, input_shape=(Input_shape,), activation='relu'))
               model.add(Dense(Output_shape, activation='linear'))
               
+              
        
+       def add_layer(self,units,activation):
+              
+              last_layer=self.model.layers[-1]
+              x=Sequential()
+
+              for layer in self.model.layers[:-1]: 
+                       x.add(layer)
+
+              x.add(Dense(units, activation=activation))
+              x.add(last_layer) 
+              self.model=x
        
        
        def add_layer(self,units,activation):
+              
               
               last_layer=self.model.layers[-1]
               x=sequential()
