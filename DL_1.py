@@ -25,7 +25,7 @@ continuer=True
 i=0
 st.write(i)
 while continuer:
-       rep = st.radio("Voulez vous continuer?",("oui","non"))
+       rep = st.radio("Voulez vous continuer?",("oui","non"),key=i)
        if rep=="oui":
               i=i+1
               st.write(i)
