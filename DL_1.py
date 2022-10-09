@@ -23,11 +23,12 @@ activation=[]
 
 continuer=True
 i=0
-st.whrite(i)
+st.write(i)
 while continuer:
        rep = st.radio("Voulez vous continuer?",("oui","non"))
        if rep=="oui":
               i=i+1
+              st.write(i)
        else:
               continuer=False
        
