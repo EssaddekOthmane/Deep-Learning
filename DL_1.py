@@ -31,7 +31,7 @@ for i in range(length):
        
        function=st.radio(
      "quelle est la fonction d'activation? ",
-     ('tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear'),key=lenght+i)
+     ('tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear'),key=length+i)
        units.append(unit)
        activation.append(function)
 
