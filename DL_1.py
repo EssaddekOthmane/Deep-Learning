@@ -22,24 +22,16 @@ units=[]
 activation=[]
 
 continuer=True
-i=0
-st.write(i)
-while continuer:
-       rep = st.radio("Voulez vous continuer?",("oui","non"),key=i)
-       if rep=="oui":
-              i=i+1
-              st.write(i)
-       else:
-              continuer=False
+
        
        
 
 for i in range(length):
-       unit=st.slider('How old are you?', 0, 130, 25)#st.slider(label="Nombre de neurones", step= 2,min_value=0, max_value=1000,value= 200)
+       unit=st.slider('How old are you?', 0, 130, 25,key=i)#st.slider(label="Nombre de neurones", step= 2,min_value=0, max_value=1000,value= 200)
        
        function=st.radio(
      "quelle est la fonction d'activation? ",
-     ('tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear'))
+     ('tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear'),key=i)
        units.append(unit)
        activation.append(function)
 
