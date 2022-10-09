@@ -20,6 +20,19 @@ length=st.slider("Votre choix", step= 2,min_value=0, max_value=50,value= 50)
 functions=['tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear']
 units=[]
 activation=[]
+
+continuer=True
+i=0
+st.whrite(i)
+while continuer:
+       rep = st.radio("Voulez vous continuer?",("oui","non"))
+       if rep=="oui":
+              i=i+1
+       else:
+              continuer=False
+       
+       
+
 for i in range(length):
        unit=st.slider('How old are you?', 0, 130, 25)#st.slider(label="Nombre de neurones", step= 2,min_value=0, max_value=1000,value= 200)
        
