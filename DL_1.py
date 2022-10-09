@@ -21,7 +21,7 @@ functions=['tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear'
 units=[]
 activation=[]
 for i in range(length):
-       unit=st.slider( step= 2,min_value=0, max_value=1000,value= 200)
+       unit=st.slider("Nombre de neurones", step= 2,min_value=0, max_value=1000,value= 200)
        
        function=st.radio(
      "quelle est la fonction d'activation? ",
