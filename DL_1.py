@@ -16,7 +16,7 @@ st.markdown("Cette réflexion va donner naissance au machine learning, une machi
 st.subheader("2. Application à une base de donnéé avec cibles multiple (2)")
 st.markdown("On commence par construire le modèle. ")
 st.markdown(" Veuillez choisir le nombre de couches internes de votre modèle: ")
-length=st.slider( step= 2,min_value=0, max_value=50,value= 50) 
+length=st.slider("Votre choix", step= 2,min_value=0, max_value=50,value= 50) 
 functions=['tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear']
 units=[]
 activation=[]
