@@ -138,10 +138,13 @@ st.write(units,activation)
 
 
 
+       
 class reg_model():
        
        
-      def __init__(self,Input_shape,Output_shape):
+       
+       def __init__(self,Input_shape,Output_shape):
+              
 
               self.model=Sequential()
               self.output_shape=Output_shape
@@ -152,10 +155,12 @@ class reg_model():
 
        def make_layers(self,lenght,units,activations):
               
+              
 
               x=Sequential()
               x.add(Dense(1000, input_shape=(self.input_shape,), activation='relu'))
               for i in range(lenght):
+                     
                      x.add(Dense(units[i],activation=activations[i]))
               x.add(Dense(self.output_shape, activation='linear'))
               self.model=x
