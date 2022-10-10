@@ -132,7 +132,7 @@ for i in range(length):
      ('tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear'),key=length+i)
        units.append(unit)
        activation.append(function)
-
+st.markdown("Vos choix sont :")
 st.write(units,activation)      
 #df=df=pd.read_csv('DB aout.csv')
 
@@ -140,43 +140,26 @@ st.write(units,activation)
 
 class reg_model():
        
-       def __init__(self,Input_shape,Output_shape):
-              
-              self.model=sequential()
+       
+      def __init__(self,Input_shape,Output_shape):
+
+              self.model=Sequential()
               self.output_shape=Output_shape
               self.input_shape=Input_shape
+              self.history={}          
               
-              model.add(Dense(1000, input_shape=(Input_shape,), activation='relu'))
-              model.add(Dense(Output_shape, activation='linear'))
+      
+
+       def make_layers(self,lenght,units,activations):
               
-              
-       
-       def add_layer(self,units,activation):
-              
-              last_layer=self.model.layers[-1]
+
               x=Sequential()
-
-              for layer in self.model.layers[:-1]: 
-                       x.add(layer)
-
-              x.add(Dense(units, activation=activation))
-              x.add(last_layer) 
+              x.add(Dense(1000, input_shape=(self.input_shape,), activation='relu'))
+              for i in range(lenght):
+                     x.add(Dense(units[i],activation=activations[i]))
+              x.add(Dense(self.output_shape, activation='linear'))
               self.model=x
-       
-       
-       def add_layer(self,units,activation):
-              
-              
-              last_layer=self.model.layers[-1]
-              x=sequential()
-              
-              for layer in self.model.layers[:-1]: 
-                     x.add(layer)
-                     
-              x.add(Dense(units, activation=activation))
-              x.add(last_layer) 
-              self.model=x
-                
+                      
                      
         
        def compile_model(self):
@@ -199,19 +182,39 @@ class reg_model():
                                   batch_size=50,
                                   verbose=1)
               
-              return(history)
+              self.history=history
        
        
        
-       def epoch_vs_losses(history):          
-              history_dict = history.history
-              loss_values = history_dict['loss'] 
-              val_loss_values = history_dict['val_loss']
-              epochs = range(1, len(loss_values) + 1) 
+       def epoch_vs_losses(history):
+              history_dict = self.history.history
+              dff=pd.DataFrame()
+              dff['loss']=history_dict['loss'] 
+              dff['val_loss'] = history_dict['val_loss']
+              dff['epochs']= range(1, len(loss_values) + 1)
+              line1=alt.Chart(dff).mark_line().encode(
+              x='epochs',
+              y='loss'
+              )
+              line2=alt.Chart(dff).mark_line(color='red').encode(
+               x='epochs',
+              y='val_loss'
+              )
 
-       
-       
-       
-                     
+              st.altair_chart(line1+line2, use_container_width=True)
+
+ 
+
+
+mode=reg_model(X_train.shape[1],y_train.shape[1])
+mode.make_layers(length,units,activation)
+mode.compile_model()
+
+
+
+
+
+
+                    
                      
  
