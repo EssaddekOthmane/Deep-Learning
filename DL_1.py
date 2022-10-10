@@ -6,6 +6,7 @@ from tensorflow.keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
+from PIL import Image
 
 
 
@@ -38,7 +39,7 @@ st.markdown("On donne le choix à l'utilisateur entre traiter directement les de
 cible=st.radio(
               "voulez vouz traiter directement les deux variables cibles ? ",
               ('Oui','Non'),key=100000000000)
-if cible=='oui':
+if cible=='Oui':
        
        X_train, X_test = train_test_split(df[columns], test_size=0.2, random_state=42, shuffle=True)
        trainScaler=StandardScaler()
@@ -68,7 +69,7 @@ if cible=='oui':
        
        #################
        
-else:
+if cible=='Non':
        cibles=st.radio(
               "quelle est la variable cible que vous voulez!, ",
               ('première','deuxième'),key=100000000001)
@@ -105,6 +106,8 @@ st.latex(r'''
      X_{sta}=\frac{X-\mathbb{E}[X]}{sd[X]}
      ''')
 st.markdown("On passe à la construction du modèle. ")
+image = Image.open('representation-neural-network.webp')
+st.image(image, caption='Représentation visuelle d’un réseau de neurones')
 st.markdown(" Veuillez choisir le nombre de couches internes de votre modèle: ")
 length=st.slider("Votre choix", step= 2,min_value=0, max_value=50,value= 50) 
 functions=['tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear']
