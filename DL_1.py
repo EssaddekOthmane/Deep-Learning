@@ -192,7 +192,10 @@ class reg_model():
        
        
        def epoch_vs_losses(self):
+              
               history_dict = self.history.history
+              loss_values = history_dict['loss'] 
+              val_loss_values = history_dict['val_loss']
               dff=pd.DataFrame()
               dff['loss']=history_dict['loss'] 
               dff['val_loss'] = history_dict['val_loss']
