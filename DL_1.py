@@ -14,6 +14,11 @@ st.subheader("1. Introduction")
 st.markdown("Le deep learning ou apprentissage profond est un sous-domaine de l'intelligence artificielle (IA). Ce terme désigne l'ensemble des techniques d'apprentissage automatique (machine learning), autrement dit une forme d'apprentissage fondée sur des approches mathématiques, utilisées pour modéliser des données. Pour mieux comprendre ces techniques, il faut remonter aux origines de l'intelligence artificielle en 1950, année pendant laquelle Alan Turning s'intéresse aux machines capables de penser")
 st.markdown("Cette réflexion va donner naissance au machine learning, une machine qui communique et se comporte en fonction des informations stockées. Le deep learning est un système avancé basé sur le cerveau humain, qui comporte un vaste réseau de neurones artificiels. Ces neurones sont interconnectés pour traiter et mémoriser des informations, comparer des problèmes ou situations quelconques avec des situations similaires passées, analyser les solutions et résoudre le problème de la meilleure façon possible.")
 st.subheader("2. Application à une base de donnéé avec cibles multiple (2)")
+df=pd.read_excel("Db_aout.xlsx")
+df=df.dropna()
+df = df.sample(frac = 1)
+st.dataframe(df)
+st.markdown("Notre base de données est constitué de 90 variables explicatives et deux variables cibles. ")
 st.markdown("On commence par construire le modèle. ")
 st.markdown(" Veuillez choisir le nombre de couches internes de votre modèle: ")
 length=st.slider("Votre choix", step= 2,min_value=0, max_value=50,value= 50) 
@@ -38,10 +43,6 @@ for i in range(length):
 st.write(units,activation)      
 #df=df=pd.read_csv('DB aout.csv')
 
-df=pd.read_excel("Db_aout.xlsx")
-df=df.dropna()
-df = df.sample(frac = 1)
-
 columns=[ 'S0_F0', 'S1_F0', 'S2_F0', 'S3_F0',
        'S4_F0', 'S5_F0', 'S6_F0', 'S7_F0', 'S8_F0', 'S9_F0', 'S10_F0',
        'S11_F0', 'S12_F0', 'S13_F0', 'S14_F0', 'S0_F1', 'S0_F2', 'S0_F3',
@@ -60,7 +61,7 @@ columns=[ 'S0_F0', 'S1_F0', 'S2_F0', 'S3_F0',
 X=df[columns].values
 Y1=df['ref1'].values.reshape(-1, 1)
 Y2=df['ref2'].values.reshape(-1, 1)
-st.dataframe(df)
+
 
 
 
