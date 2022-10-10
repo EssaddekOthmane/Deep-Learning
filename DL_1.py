@@ -11,7 +11,7 @@ from PIL import Image
 
 
 st.title("Constructeur de modèle profond de prédiction")
-st.subheader("1. Introduction")
+st.subheader("**1. Introduction**")
 st.markdown("Le deep learning ou apprentissage profond est un sous-domaine de l'intelligence artificielle (IA). Ce terme désigne l'ensemble des techniques d'apprentissage automatique (machine learning), autrement dit une forme d'apprentissage fondée sur des approches mathématiques, utilisées pour modéliser des données. Pour mieux comprendre ces techniques, il faut remonter aux origines de l'intelligence artificielle en 1950, année pendant laquelle Alan Turning s'intéresse aux machines capables de penser")
 st.markdown("Cette réflexion va donner naissance au machine learning, une machine qui communique et se comporte en fonction des informations stockées. Le deep learning est un système avancé basé sur le cerveau humain, qui comporte un vaste réseau de neurones artificiels. Ces neurones sont interconnectés pour traiter et mémoriser des informations, comparer des problèmes ou situations quelconques avec des situations similaires passées, analyser les solutions et résoudre le problème de la meilleure façon possible.")
 st.subheader("2. Application à une base de donnéé avec cibles multiple (2)")
@@ -100,13 +100,13 @@ if cible=='Non':
 
        X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=42)
        
-st.subsubheader('Traitement de la base de donnée')      
+st.subheader('2.1 Traitement de la base de donnée')      
 st.markdown("On commence par standariser les données. ")   
 st.latex(r'''
      X_{sta}=\frac{X-\mathbb{E}[X]}{sd[X]}
      ''')
 
-st.subsubheader('Le modèle')   
+st.subheader('2.2 Le modèle')   
 st.markdown("On passe à la construction du modèle. ")
 image = Image.open('representation-neural-network.webp')
 st.image(image, caption='Représentation visuelle d’un réseau de neurones')
