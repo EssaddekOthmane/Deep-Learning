@@ -106,7 +106,7 @@ st.latex(r'''
      X_{sta}=\frac{X-\mathbb{E}[X]}{sd[X]}
      ''')
 
- st.subsubheader('Le modèle')   
+st.subsubheader('Le modèle')   
 st.markdown("On passe à la construction du modèle. ")
 image = Image.open('representation-neural-network.webp')
 st.image(image, caption='Représentation visuelle d’un réseau de neurones')
