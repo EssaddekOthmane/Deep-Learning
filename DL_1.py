@@ -108,6 +108,9 @@ st.latex(r'''
 st.markdown("On passe à la construction du modèle. ")
 image = Image.open('representation-neural-network.webp')
 st.image(image, caption='Représentation visuelle d’un réseau de neurones')
+
+st.markdown('Un réseau de neurones est un modèle à plusieurs niveaux inspiré du cerveau humain. Comme les neurones de notre cerveau, les cercles ci-dessus représentent un nœud. Les cercles bleus représentent la couche d’entrée (input layers), les cercles noirs représentent les couches cachées (hidden layers) ou intermédiaires et les cercles verts représentent la couche de sortie (output layers). Chaque nœud des couches cachées représente une fonction qui s’applique sur les données d’entrée menant finalement à une sortie des cercles verts.')
+
 st.markdown(" Veuillez choisir le nombre de couches internes de votre modèle: ")
 length=st.slider("Votre choix", step= 2,min_value=0, max_value=50,value= 50) 
 functions=['tanh','softmax','relu','softplus','softplus','hard_sigmoid','linear']
