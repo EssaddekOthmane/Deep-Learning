@@ -100,7 +100,7 @@ if cible=='Non':
 
        X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=42)
        
- st.subsubheader('Traitement de la base de donnée')      
+st.subsubheader('Traitement de la base de donnée')      
 st.markdown("On commence par standariser les données. ")   
 st.latex(r'''
      X_{sta}=\frac{X-\mathbb{E}[X]}{sd[X]}
