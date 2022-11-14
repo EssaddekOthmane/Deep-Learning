@@ -220,8 +220,8 @@ mode.compile_model()
 
 st.subheader("Entrainement du modèle")
 st.markdown("Une époque s’écoule quand un ensemble de données entier est passé en avant et en arrière à travers le réseau neural exactement une fois.  Si l’ensemble de données entier ne peut pas être passé dans l’algorithme à la fois, il doit être divisé en mini-lots.  La taille du lot est le nombre total d’échantillons de formation présents dans un seul lot minimal.  Une itération est une mise à jour de gradient unique (mise à jour des poids du modèle) pendant la formation.  Le nombre d’itérations est équivalent au nombre de lots nécessaires pour compléter une époque.")
-epoch=st.slider(label="Nombre d'époque que vous voulez", step= 2,min_value=0, max_value=100,value= 2,key=100000)
-batch=st.slider(label="le bach size que vous voulez", step= 2,min_value=0, max_value=100,value= 2,key=100001)
+epoch=st.slider(label="Nombre d'époque que vous voulez", step= 2,min_value=0, max_value=100,value= 30,key=100000)
+batch=st.slider(label="le bach size que vous voulez", step= 2,min_value=0, max_value=100,value= 50,key=100001)
 mode.train_model(X_train, y_train,X_test, y_test,epoch,batch)
 mode.epoch_vs_losses()
 
